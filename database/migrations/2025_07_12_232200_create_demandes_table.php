@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('demandes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); //L'utilisateur qui fait la demande
-            $table->foreignId('villes_id')->constrained();
+            $table->foreignId('ville_id')->constrained('villes');
             $table->foreignId('groupe_sanguin_id')->constrained();
             $table->text('description')->nullable();
-            $table->string('statut')->default('en attente'); 
+            $table->string('statut')->default('en attente');
             $table->timestamps();
         });
     }

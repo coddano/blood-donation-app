@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('donneurs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('villes_id')->constrained();
+            $table->foreignId('ville_id')->constrained('villes');
             $table->foreignId('groupe_sanguin_id')->constrained();
             $table->string('telephone');
-            $table->boolean('disponible')->default('true');
+            $table->boolean('disponible')->default(true);
             $table->timestamps();
         });
     }
